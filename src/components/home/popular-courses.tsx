@@ -66,7 +66,7 @@ const HomePopularCourse: FC = () => {
     infinite: true,
     autoplay: true,
     speed: 300,
-    slidesToShow: matchMobileView ? 1 : 3,
+    slidesToShow: matchMobileView ? 1 : 4,
     slidesToScroll: 1,
     prevArrow: <SliderArrow type="prev" />,
     nextArrow: <SliderArrow type="next" />,
@@ -90,24 +90,11 @@ const HomePopularCourse: FC = () => {
       }}
     >
       <Container maxWidth="lg">
+        <Typography textAlign="center" variant="h1" sx={{ mt: { xs: 0, md: -5 }, fontSize: { xs: 30, md: 48 } }}>
+          Produk Populer
+        </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={3}>
-            <Box
-              sx={{
-                height: '100%',
-                width: { xs: '100%', md: '90%' },
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: { xs: 'center', md: 'flex-start' },
-              }}
-            >
-              <Typography variant="h1" sx={{ mt: { xs: 0, md: -5 }, fontSize: { xs: 30, md: 48 } }}>
-                Most Popular Courses
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} md={9}>
+          <Grid item xs={12} md={12}>
             <Slider {...sliderConfig}>
               {data.map((item) => (
                 <CourseCardItem key={String(item.id)} item={item} />

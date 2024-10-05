@@ -7,45 +7,58 @@ import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import { Card, CardContent, Icon, IconTypeMap, SvgIcon, SvgIconProps } from '@mui/material'
 
 interface Exp {
-  label: string
-  value: string
+  label: string; 
+  value: string; 
+  icon?: React.ElementType<SvgIconProps>
 }
 interface ExpItemProps {
-  item: Exp
+  item: {
+    label: string;
+    value: string;
+    icon?: React.ElementType<SvgIconProps>; 
+  };
 }
-
 const exps: Array<Exp> = [
   {
-    label: 'Students',
+    label: 'Sewa dan Buat Aplikasi',
     value: '10K+',
+    icon: require('@mui/icons-material/PhoneAndroid').default,
   },
   {
-    label: 'Quality Course',
+    label: 'Agensi Marketing',
     value: '20+',
+    icon: require('@mui/icons-material/Tv').default, 
   },
   {
-    label: 'Experience Mentors',
+    label: 'Desain',
     value: '10+',
+    icon: require('@mui/icons-material/DesignServices').default, 
   },
 ]
 
+
 const ExpItem: FC<ExpItemProps> = ({ item }) => {
-  const { value, label } = item
+  const { icon: IconComponent, label, value } = item;
+
   return (
-    <Box sx={{ textAlign: 'center', mb: { xs: 1, md: 0 } }}>
-      <Typography
-        sx={{ color: 'secondary.main', mb: { xs: 1, md: 2 }, fontSize: { xs: 34, md: 44 }, fontWeight: 'bold' }}
-      >
-        {value}
-      </Typography>
-      <Typography color="text.secondary" variant="h5">
-        {label}
-      </Typography>
-    </Box>
-  )
-}
+    <Card sx={{ textAlign: 'center', py: 3, px: 2, boxShadow: 3 }}>
+      <CardContent>
+        {IconComponent && (
+          <Box sx={{ mb: { xs: 1, md: 2 } }}>
+            <SvgIcon component={IconComponent} sx={{ fontSize: 60, color: 'primary.main' }} />
+          </Box>
+        )}        
+        <Typography color="text.secondary" variant="h3">
+          {label}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+};
+
 
 const HomeHero: FC = () => {
   return (
@@ -83,7 +96,7 @@ const HomeHero: FC = () => {
                       backgroundColor: 'unset',
                     }}
                   >
-                    Improve{' '}
+                    Solusi{' '}
                     <Box
                       sx={{
                         position: 'absolute',
@@ -97,7 +110,8 @@ const HomeHero: FC = () => {
                       <img src="/images/headline-curve.svg" alt="Headline curve" />
                     </Box>
                   </Typography>
-                  your{' '}
+                  Bisnis{' '}
+                  Berbasis{' '}
                   <Typography
                     component="span"
                     sx={{
@@ -113,7 +127,7 @@ const HomeHero: FC = () => {
                       },
                     }}
                   >
-                    Skill
+                    Digital
                     <svg version="1.1" viewBox="0 0 3183 3072">
                       <g id="Layer_x0020_1">
                         <path
@@ -132,13 +146,13 @@ const HomeHero: FC = () => {
                     </svg>
                   </Typography>{' '}
                   <br />
-                  with Different Way
+                  {/* Relasi Symbio Solusi */}
                 </Typography>
               </Box>
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
                   {
-                    "Let's take an online course to improve your skills in a different way, you can set your own study time according to your learning speed. So you san study comfortable and absorb tge material easily."
+                    "Selamat datang di Relasi Symbio Solusi, mitra terbaik untuk solusi bisnis digital Anda! Kami hadir untuk membantu transformasi bisnis Anda menjadi lebih efisien, inovatif, dan siap bersaing di era digital. Dengan layanan yang lengkap dan terintegrasi, kami bantu wujudkan pertumbuhan bisnis yang lebih cepat dan berkelanjutan. Bangun masa depan bisnis Anda bersama kami!"
                   }
                 </Typography>
               </Box>
@@ -208,15 +222,15 @@ const HomeHero: FC = () => {
         </Grid>
 
         {/* Experience */}
-        <Box sx={{ boxShadow: 2, py: 4, px: 7, borderRadius: 4 }}>
-          <Grid container spacing={2}>
-            {exps.map((item) => (
-              <Grid key={item.value} item xs={12} md={4}>
+        {/* <Box sx={{ boxShadow: 2, py: 4, px: 7, borderRadius: 4 }}> */}
+          <Grid mt={5} container spacing={2}>
+            {exps.map((item, index) => (
+              <Grid key={index} item xs={12} md={4}>
                 <ExpItem item={item} />
               </Grid>
             ))}
           </Grid>
-        </Box>
+        {/* </Box> */}
       </Container>
     </Box>
   )
