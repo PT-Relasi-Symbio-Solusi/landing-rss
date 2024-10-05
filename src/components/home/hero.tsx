@@ -7,41 +7,37 @@ import Typography from '@mui/material/Typography'
 import { Link as ScrollLink } from 'react-scroll'
 import { StyledButton } from '@/components/styled-button'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import { Card, CardContent, Icon, IconTypeMap, SvgIcon, SvgIconProps } from '@mui/material'
+import { Card, CardContent, SvgIcon, SvgIconProps } from '@mui/material'
+import { PhoneAndroid, Tv, DesignServices } from '@mui/icons-material'
 
 interface Exp {
   label: string; 
-  value: string; 
   icon?: React.ElementType<SvgIconProps>
 }
 interface ExpItemProps {
   item: {
     label: string;
-    value: string;
     icon?: React.ElementType<SvgIconProps>; 
   };
 }
 const exps: Array<Exp> = [
   {
     label: 'Sewa dan Buat Aplikasi',
-    value: '10K+',
-    icon: require('@mui/icons-material/PhoneAndroid').default,
+    icon: PhoneAndroid,
   },
   {
     label: 'Agensi Marketing',
-    value: '20+',
-    icon: require('@mui/icons-material/Tv').default, 
+    icon: Tv, 
   },
   {
     label: 'Desain',
-    value: '10+',
-    icon: require('@mui/icons-material/DesignServices').default, 
+    icon: DesignServices, 
   },
 ]
 
 
 const ExpItem: FC<ExpItemProps> = ({ item }) => {
-  const { icon: IconComponent, label, value } = item;
+  const { icon: IconComponent, label } = item;
 
   return (
     <Card sx={{ textAlign: 'center', py: 3, px: 2, boxShadow: 3 }}>
