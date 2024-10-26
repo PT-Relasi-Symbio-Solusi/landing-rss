@@ -39,7 +39,7 @@ export const data: Array<Mentor> = [
   },
   {
     id: 4,
-    photo: '/images/mentors/noah-buscher-8A7fD6Y5VF8-unsplash.jpg',
+    photo: '/images/mentors/nazar.jpg',
     name: 'Nazar Ruhimat, A.Md.Kom',
     category: 'Designer',
     description:
