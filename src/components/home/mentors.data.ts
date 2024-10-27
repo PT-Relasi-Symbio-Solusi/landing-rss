@@ -3,7 +3,7 @@ import type { Mentor } from '@/interfaces/mentor'
 export const data: Array<Mentor> = [
   {
     id: 1,
-    photo: '/images/mentors/christian-buehner-DItYlc26zVI-unsplash.jpg',
+    photo: '/images/mentors/ujun.jpg',
     name: 'Ujun Junaedi, S.Kom',
     category: 'Product Manager',
     description:
@@ -15,7 +15,7 @@ export const data: Array<Mentor> = [
   },
   {
     id: 2,
-    photo: '/images/mentors/jonas-kakaroto-KIPqvvTOC1s-unsplash.jpg',
+    photo: '/images/mentors/dobith.jpg',
     name: 'M Dobith Syadad Riyadi',
     category: 'Software Engineer',
     description:
