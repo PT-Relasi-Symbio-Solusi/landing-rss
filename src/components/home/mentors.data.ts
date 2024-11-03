@@ -27,7 +27,7 @@ export const data: Array<Mentor> = [
   },
   {
     id: 3,
-    photo: '/images/mentors/noah-buscher-8A7fD6Y5VF8-unsplash.jpg',
+    photo: '/images/mentors/daffa.JPG',
     name: 'Muhamad Daffa Maulana, S.Kom',
     category: 'UI/UX Designer',
     description:
